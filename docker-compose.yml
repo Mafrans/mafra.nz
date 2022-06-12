@@ -48,7 +48,7 @@ services:
       - DATABASE_PASSWORD=$DB_PASSWORD
     volumes:
       - /opt/app/node_modules
-    command: 'yarn start'
+    command: 'yarn develop'
     networks:
       - primary
     depends_on:
