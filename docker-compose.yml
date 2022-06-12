@@ -47,7 +47,6 @@ services:
       - DATABASE_USERNAME=$DB_USER
       - DATABASE_PASSWORD=$DB_PASSWORD
     volumes:
-      #- ./cms:/opt/app
       - /opt/app/node_modules
     command: 'yarn start'
     networks:
