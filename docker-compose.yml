@@ -1,0 +1,74 @@
+networks:
+  primary:
+    name: mafra.nz-network
+    driver: bridge
+
+services:
+  db:
+    container_name: mafra.nz-db
+    build: 
+      context: .docker/postgres
+    environment:
+      POSTGRES_USER: $DB_USER
+      POSTGRES_DB: $DB_NAME
+      POSTGRES_PASSWORD: $DB_PASSWORD
+    env_file: .env
+    ports:
+      - '5432:5432'
+    volumes:
+      - db:/var/lib/postgresql/data
+    networks:
+      - primary
+  
+  caddy:
+    container_name: mafra.nz-caddy
+    build: 
+      context: .docker/caddy
+    volumes:
+      - ./.docker/caddy:/etc/caddy
+    ports:
+      - '80:80'
+      - '443:443'
+    networks:
+      - primary
+    depends_on:
+      - cms
+      - client
+    
+  cms:
+    container_name: mafra.nz-cms
+    build: 
+      context: cms
+    working_dir: /opt/app
+    stdin_open: true
+    env_file: .env
+    environment:
+      - DATABASE_NAME=$DB_NAME
+      - DATABASE_USERNAME=$DB_USER
+      - DATABASE_PASSWORD=$DB_PASSWORD
+    volumes:
+      #- ./cms:/opt/app
+      - /opt/app/node_modules
+    command: 'yarn start'
+    networks:
+      - primary
+    depends_on:
+      - db
+
+  client:
+    container_name: mafra.nz-client
+    build:
+      context: client
+    working_dir: /opt/app
+    env_file: .env
+    stdin_open: true
+    volumes:
+      - ./client:/opt/app
+      - /opt/app/node_modules
+    command: 'yarn dev'
+    networks:
+      - primary
+
+volumes:
+  db:
+    name: mafra.nz-db
