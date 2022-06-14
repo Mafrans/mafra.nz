@@ -13,4 +13,10 @@ declare namespace Collections {
         title: string;
         url: string;
     }
+
+    export type Page = {
+        title: string;
+        slug: string;
+        excerpt: string;
+    }
 }

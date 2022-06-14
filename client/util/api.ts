@@ -1,13 +1,26 @@
-import {stringify, IStringifyOptions} from 'qs';
+import {stringify} from 'qs';
 
 type APIResponse<T> = {
     data: T;
     meta: Strapi.Pagination;
 }
 
-export const apiQuery = async <T> (path: string, query: IStringifyOptions = {}, options: RequestInit = {}): Promise<APIResponse<T>> => {
+type RequestOptions = RequestInit & {
+    preview?: boolean;
+}
+
+type NestedRecord<T> = {
+    [K in keyof T]: T[K] | NestedRecord<T[K]>;
+}
+
+export const apiQuery = async <T> (path: string, query: NestedRecord<unknown> = {}, options: RequestOptions = {}): Promise<APIResponse<T>> => {
+    console.log({path, base: process.env.API_URL, query, options});
     const url = new URL(path, process.env.API_URL);
     url.search = stringify(query);
+
+    if (options.preview) {
+        url.searchParams.set('status', 'draft');
+    }
 
     const res = await fetch(url.href, options);
     if (!res.ok) {
@@ -17,13 +30,13 @@ export const apiQuery = async <T> (path: string, query: IStringifyOptions = {}, 
     return await res.json();
 }
 
-export const getCollection = async <T> (path: string, query: IStringifyOptions = {}, options: RequestInit = {}): Promise<APIResponse<Strapi.Collection<T>>> =>
+export const getCollection = async <T> (path: string, query: NestedRecord<unknown> = {}, options: RequestOptions = {}): Promise<APIResponse<Strapi.Collection<T>>> =>
     apiQuery<Strapi.Collection<T>>(path, query, options);
 
-export const getSingle = async <T> (path: string, query: IStringifyOptions = {}, options: RequestInit = {}): Promise<APIResponse<Strapi.Single<T>>> =>
+export const getSingle = async <T> (path: string, query: NestedRecord<unknown> = {}, options: RequestOptions = {}): Promise<APIResponse<Strapi.Single<T>>> =>
     apiQuery<Strapi.Single<T>>(path, query, options);
 
-export const getFirst = async <T> (path: string, query: IStringifyOptions = {}, options: RequestInit = {}): Promise<APIResponse<Strapi.Single<T>>> => {
+export const getFirst = async <T> (path: string, query: NestedRecord<unknown> = {}, options: RequestOptions = {}): Promise<APIResponse<Strapi.Single<T>>> => {
     const res = await getCollection<T>(path, query, options);
     return {
         data: res.data[0],
@@ -31,7 +44,7 @@ export const getFirst = async <T> (path: string, query: IStringifyOptions = {}, 
     };
 }
 
-export const getLast = async <T> (path: string, query: IStringifyOptions = {}, options: RequestInit = {}): Promise<APIResponse<Strapi.Single<T>>> => {
+export const getLast = async <T> (path: string, query: NestedRecord<unknown> = {}, options: RequestOptions = {}): Promise<APIResponse<Strapi.Single<T>>> => {
     const res = await getCollection<T>(path, query, options);
     return {
         data: res.data[res.data.length - 1],

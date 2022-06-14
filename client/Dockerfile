@@ -6,4 +6,3 @@ RUN yarn install --progress=false --frozen-lockfile && \
     yarn cache clean
 
 COPY . /opt/app
-RUN yarn build

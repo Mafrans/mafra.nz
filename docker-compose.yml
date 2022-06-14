@@ -46,9 +46,13 @@ services:
       - DATABASE_NAME=$DB_NAME
       - DATABASE_USERNAME=$DB_USER
       - DATABASE_PASSWORD=$DB_PASSWORD
+      - URL=$CMS_URL
+      
     volumes:
       - /opt/app/node_modules
-    command: 'yarn develop'
+    command: > 
+      sh -c "yarn build && 
+             yarn develop"
     networks:
       - primary
     depends_on:
@@ -60,11 +64,15 @@ services:
       context: client
     working_dir: /opt/app
     env_file: .env
+    environment:
+      - API_URL=${CMS_URL}/api
     stdin_open: true
     volumes:
       - ./client:/opt/app
       - /opt/app/node_modules
-    command: 'yarn dev'
+    command: > 
+      sh -c "yarn build && 
+             yarn dev"
     networks:
       - primary
 
