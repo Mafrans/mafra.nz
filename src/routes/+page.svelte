@@ -1,14 +1,13 @@
-<script>
-  import { client } from "../../tina/__generated__/client";
-  let content = client.queries.frontpage({
-    relativePath: "frontpage.md",
-  });
+<script lang="ts">
+  import type { PageData } from "./$types";
+
+  export let data: PageData;
 </script>
 
 <div class="container">
-  {#await content then { data: { frontpage } }}
-    <h1>{frontpage.title}</h1>
-  {/await}
+  {#if data.content}
+    <h1>{data.content.title}</h1>
+  {/if}
   <p>Still working on this one</p>
 </div>
 
