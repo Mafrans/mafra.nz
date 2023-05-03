@@ -4,7 +4,7 @@
   export let data: PageData;
 </script>
 
-<div class="container">
+<div>
   {#if data.content}
     <h1>{data.content.title}</h1>
   {/if}
