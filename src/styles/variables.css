@@ -8,7 +8,7 @@
   --font-body-lg: 1.25rem / 1.5 var(--font-sans);
   --font-body: 1rem / 1.5 var(--font-sans);
   --font-body-sm: 0.825rem / 1.8 var(--font-sans);
-  --font-terminal: 1.25rem / 1.5 var(--font-mono);
+  --font-terminal: 1.25rem / 1 var(--font-mono);
 
   --container: 1560px;
 }
