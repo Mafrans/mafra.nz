@@ -1,8 +1,14 @@
 <script>
+  import { client } from "../../tina/__generated__/client";
+  let content = client.queries.frontpage({
+    relativePath: "frontpage.md",
+  });
 </script>
 
 <div class="container">
-  <h1>Not quite there yet</h1>
+  {#await content then { data: { frontpage } }}
+    <h1>{frontpage.title}</h1>
+  {/await}
   <p>Still working on this one</p>
 </div>
 

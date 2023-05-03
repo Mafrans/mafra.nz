@@ -22,6 +22,26 @@ export default defineConfig({
   schema: {
     collections: [
       {
+        name: "frontpage",
+        label: "Front page",
+        path: "content/pages/frontpage",
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Title",
+            isTitle: true,
+            required: true,
+          },
+        ],
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+        },
+      },
+      {
         name: "post",
         label: "Posts",
         path: "content/posts",
