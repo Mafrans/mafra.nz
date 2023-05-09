@@ -6,6 +6,12 @@ export default defineConfig({
   test: {
     include: ["src/**/*.{test,spec}.{js,ts}"],
   },
+  resolve: {
+    alias: {
+      "~": "./src",
+      "@tina": "./tina/__generated__",
+    },
+  },
   server: {
     fs: {
       allow: ["./tina/__generated__"],

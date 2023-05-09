@@ -61,6 +61,38 @@ export default defineConfig({
           },
         ],
       },
+      {
+        name: "gamereview",
+        label: "Game Reviews",
+        path: "content/gamereviews",
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "number",
+            name: "rating",
+            label: "Rating",
+            ui: {
+              validate: (v: number) => {
+                if (v < 0 || v > 10) {
+                  return "Must be between 0 and 10";
+                }
+              },
+            },
+          },
+          {
+            type: "rich-text",
+            name: "body",
+            label: "Content",
+            isBody: true,
+          },
+        ],
+      },
     ],
   },
 });

@@ -1,12 +1,11 @@
 <script lang="ts">
-  import Crt from "../components/Crt.svelte";
   import type { PageData } from "./$types";
 
   export let data: PageData;
 </script>
 
 <div>
-  <Crt />
+  <h1>{data.content.title}</h1>
 </div>
 
 <style>

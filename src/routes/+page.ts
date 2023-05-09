@@ -1,8 +1,7 @@
-import type { Load } from "@sveltejs/kit";
 import type { PageLoad } from "./$types";
-import { client } from "../../tina/__generated__/client";
+import { client } from "@tina/client";
 
-export const load: Load = (async () => {
+export const load: PageLoad = async () => {
   const res = await client.queries.frontpage({
     relativePath: "frontpage.md",
   });
@@ -10,4 +9,4 @@ export const load: Load = (async () => {
   return {
     content: res.data.frontpage,
   };
-}) satisfies PageLoad;
+};
