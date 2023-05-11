@@ -18,9 +18,7 @@
       <ol class="reviews">
         {#each reviews as review}
           {#if review != null}
-            <a href={`/reviews/${review._sys.relativePath}`}>
-              <GameReviewItem {review} />
-            </a>
+            <GameReviewItem {review} />
           {/if}
         {/each}
       </ol>
@@ -30,6 +28,8 @@
 
 <style>
   :global(body) {
+    background: var(--color-grey-50);
+    color: var(--color-black);
     --container: 1024px;
   }
 
