@@ -1,26 +1,47 @@
 <script lang="ts">
+  import type { IconSource } from "@steeze-ui/heroicons/types";
+  import { Icon } from "@steeze-ui/svelte-icon";
+
+  export let icon: IconSource | undefined = undefined;
+  export let leftIcon: IconSource | undefined = icon;
+  export let rightIcon: IconSource | undefined = undefined;
   export let href: string | undefined = undefined;
   export let variant: "primary" | "secondary" | undefined = undefined;
 </script>
 
 {#if href}
   <a class={`button ${variant}`} {href}>
-    <slot />
+    {#if leftIcon}
+      <Icon src={leftIcon} theme="mini" size="16" />
+    {/if}
+    <span><slot /></span>
+    {#if rightIcon}
+      <Icon src={rightIcon} theme="mini" size="16" />
+    {/if}
   </a>
 {:else}
-  <button class={`button ${variant}`} class:variant>
-    <slot />
+  <button class={`button ${variant}`}>
+    {#if leftIcon}
+      <Icon src={leftIcon} theme="mini" size="16" />
+    {/if}
+    <span><slot /></span>
+    {#if rightIcon}
+      <Icon src={rightIcon} theme="mini" size="16" />
+    {/if}
   </button>
 {/if}
 
 <style>
   .button {
     position: relative;
+    display: inline-flex;
+    gap: var(--size-1);
+    align-items: center;
     text-decoration: none;
     padding: var(--size-2) var(--size-3);
     color: currentColor;
-    border-radius: var(--radius-xs);
     transition: var(--transition);
+    font: var(--font-button);
   }
   .button::before {
     content: "";
@@ -28,7 +49,6 @@
     inset: 0;
     opacity: 5%;
     background: currentColor;
-    border-radius: var(--radius-xs);
     transition: var(--transition);
   }
   .button:hover::before {

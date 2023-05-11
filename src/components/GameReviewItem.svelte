@@ -2,41 +2,39 @@
   import type { GamereviewQuery } from "@tina/types";
   import TinaMarkdown from "./TinaMarkdown/TinaMarkdown.svelte";
   import Button from "./Button.svelte";
+  import { ArrowRight } from "@steeze-ui/heroicons";
   export let review: GamereviewQuery["gamereview"];
 </script>
 
-<a href={review.excerpt ? undefined : `/reviews/${review._sys.relativePath}`}>
-  <details role="listitem">
-    <summary>
-      <h2>{review.title}</h2>
-      <data value={review.rating}>{review.rating}</data>
-    </summary>
+<details role="listitem">
+  <summary>
+    <h2>{review.title}</h2>
+    <data value={review.rating}>{review.rating}</data>
+  </summary>
 
-    <div>
-      <p class="excerpt">{review.excerpt ?? ""}</p>
-      <Button href={`/reviews/${review._sys.relativePath}`}>Read more</Button>
-    </div>
-  </details>
-</a>
+  <div class="content">
+    <p>{review.excerpt ?? ""}</p>
+    <Button
+      href={`/reviews/${review._sys.relativePath}`}
+      rightIcon={ArrowRight}
+    >
+      Read more
+    </Button>
+  </div>
+</details>
 
 <style>
-  a {
-    color: unset;
-    text-decoration: unset;
-    cursor: pointer;
-  }
-
   details {
-    padding: var(--size-4);
-    border-radius: var(--size-2);
     background: var(--color-grey-100);
     border: 1px solid var(--color-grey-300);
+    cursor: pointer;
   }
 
   summary {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: var(--size-4);
   }
 
   h2 {
@@ -45,14 +43,26 @@
   }
 
   data {
+    font-family: var(--font-mono);
+    border: 1px solid var(--color-grey-300);
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
     padding: var(--size-2);
-    border-radius: var(--radius-md);
-    background: rgb(0 0 0 / 5%);
+    background: var(--color-grey-50);
   }
 
-  .excerpt {
+  .content {
+    padding: var(--size-4);
     max-width: 700px;
-    margin-bottom: var(--size-6);
     font: var(--font-body-sm);
+  }
+
+  details[open] summary {
+    padding-bottom: 0;
+  }
+
+  details[open] .content {
+    padding-top: 0;
   }
 </style>

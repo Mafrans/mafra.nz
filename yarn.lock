@@ -1684,6 +1684,16 @@
   resolved "https://registry.yarnpkg.com/@sambego/storybook-styles/-/storybook-styles-1.0.0.tgz#4f840ee26dd0b25dcb803a75caa42e16071dcaae"
   integrity sha512-n0SqZwDewUDRaStEcoNMiYy9qovaLVStsh4Gb2dc2LLiG3IIK0UXdeR1N7puVuRihJq/192uOyGPCjZ/NAteuA==
 
+"@steeze-ui/heroicons@^2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@steeze-ui/heroicons/-/heroicons-2.2.2.tgz#f0f93898c1d3fee0fe5f9a45be6903e3ba3d2f7c"
+  integrity sha512-VUkgSAbjLzsEuF4kDQDESANb/NNxqhkOMnrzD1VhB3tSGr7wVZ5FKS7aM2QZcKXjziwR6dbt7Nhs3fpZhqOi1A==
+
+"@steeze-ui/svelte-icon@^1.3.2":
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/@steeze-ui/svelte-icon/-/svelte-icon-1.3.2.tgz#ae81d9568bd89c06842dd2d0b2f54c94367f474a"
+  integrity sha512-Y7tH9UKeDYLfBicWLw4n4mhgfuSwgEdtq9wog7H+DjvfpTvea5SEqjHI8onoKZonJqAaUBGVjH02LAiqRWu+cw==
+
 "@sveltejs/adapter-auto@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@sveltejs/adapter-auto/-/adapter-auto-2.0.0.tgz#902dba0c92e8c1d4b3128c53b370d6cc18f8f672"

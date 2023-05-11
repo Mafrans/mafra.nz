@@ -15,7 +15,7 @@
 
   main {
     max-width: var(--container);
-    margin: 200px auto;
+    margin: 15vh auto;
     padding: 0 1rem;
   }
 </style>

@@ -10,10 +10,11 @@
   --font-headline-1: var(--scale-fluid-6) / var(--line-none) var(--font-sans);
   --font-headline-2: var(--scale-fluid-5) / var(--line-none) var(--font-sans);
   --font-headline-3: var(--scale-fluid-4) / var(--line-xs) var(--font-sans);
-  --font-body-lg: var(--scale-fluid-2) / var(--line-md) var(--font-sans);
+  --font-body-lg: var(--scale-2) / var(--line-md) var(--font-sans);
   --font-body: 1rem / var(--line-md) var(--font-sans);
-  --font-body-sm: var(--scale-fluid-00) / var(--line-lg) var(--font-sans);
-  --font-terminal: var(--scale-fluid-2) / var(--line-none) var(--font-mono);
+  --font-body-sm: var(--scale-00) / var(--line-lg) var(--font-sans);
+  --font-terminal: var(--scale-2) / var(--line-none) var(--font-mono);
+  --font-button: var(--scale-00) / var(--line-none) var(--font-mono);
 
   --transition: all 0.125s var(--ease-out-quad);
 

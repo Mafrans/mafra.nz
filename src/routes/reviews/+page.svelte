@@ -35,11 +35,12 @@
 
   h1 {
     text-align: center;
-    font: var(--font-headline-1);
+    font: var(--font-headline-2);
   }
 
   .reviews {
     display: flex;
+    padding: 0;
     flex-direction: column;
     gap: 0.5rem;
   }
