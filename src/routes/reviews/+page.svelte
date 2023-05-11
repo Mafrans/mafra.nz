@@ -4,7 +4,7 @@
   import TinaMarkdown from "~/components/TinaMarkdown/TinaMarkdown.svelte";
 
   $: reviews = client.queries
-    .gamereviewConnection()
+    .gamereviewConnection({ sort: "rating", last: 10 })
     .then((connection) =>
       connection.data.gamereviewConnection.edges?.map((edge) => edge?.node)
     );

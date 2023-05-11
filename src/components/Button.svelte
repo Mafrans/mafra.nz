@@ -17,7 +17,7 @@
   .button {
     position: relative;
     text-decoration: none;
-    padding: 11px 16px;
+    padding: var(--size-2) var(--size-3);
     color: currentColor;
     border-radius: var(--radius-xs);
     transition: var(--transition);
@@ -26,13 +26,13 @@
     content: "";
     position: absolute;
     inset: 0;
-    opacity: 0;
+    opacity: 5%;
     background: currentColor;
     border-radius: var(--radius-xs);
     transition: var(--transition);
   }
   .button:hover::before {
-    opacity: 10%;
+    opacity: 12.5%;
   }
 
   .primary {

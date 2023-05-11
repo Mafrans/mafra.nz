@@ -27,8 +27,8 @@
   }
 
   details {
-    padding: 1rem;
-    border-radius: 0.5rem;
+    padding: var(--size-4);
+    border-radius: var(--size-2);
     background: var(--color-grey-100);
     border: 1px solid var(--color-grey-300);
   }
@@ -45,12 +45,14 @@
   }
 
   data {
-    padding: 0.5rem;
-    border-radius: 0.5rem;
+    padding: var(--size-2);
+    border-radius: var(--radius-md);
     background: rgb(0 0 0 / 5%);
   }
 
   .excerpt {
     max-width: 700px;
+    margin-bottom: var(--size-6);
+    font: var(--font-body-sm);
   }
 </style>
