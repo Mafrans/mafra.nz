@@ -1,0 +1,9 @@
+@import "pollen-css";
+@import "@fontsource/inter/variable";
+@import "./normalize.css";
+@import "./variables.css";
+
+img {
+  max-width: 100%;
+  height: auto;
+}

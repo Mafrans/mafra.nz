@@ -33,6 +33,33 @@ export default defineConfig({
             isTitle: true,
             required: true,
           },
+          {
+            type: "object",
+            name: "profile",
+            label: "Profile",
+            fields: [
+              {
+                type: "image",
+                name: "image",
+                label: "Image",
+              },
+              {
+                type: "string",
+                name: "name",
+                label: "Name",
+              },
+              {
+                type: "string",
+                name: "alias",
+                label: "Alias",
+              },
+              {
+                type: "string",
+                name: "location",
+                label: "Location",
+              },
+            ],
+          },
         ],
         ui: {
           allowedActions: {

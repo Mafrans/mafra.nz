@@ -1,21 +1,27 @@
 <script>
-  import "@fontsource/inter/variable.css";
-  import "modern-normalize/modern-normalize.css";
-  import "../styles/variables.css";
+  import "../styles/global.css";
 </script>
 
-<main>
+<div class="container">
   <slot />
-</main>
+</div>
 
 <style>
   :global(body) {
     font: var(--font-body);
+    background: var(--color-grey-50);
   }
 
-  main {
+  .container {
     max-width: var(--container);
+    display: grid;
+    gap: 1.5vw;
+    grid-template-columns: 1fr 2fr;
     margin: 15vh auto;
     padding: 0 1rem;
+  }
+
+  .container > :global(*) {
+    width: 100%;
   }
 </style>

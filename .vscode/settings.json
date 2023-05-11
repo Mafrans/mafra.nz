@@ -1,6 +1,10 @@
 {
   "editor.tabSize": 2,
 
+  "files.associations": {
+    "*.css": "css"
+  },
+
   "cssvar.files": ["./node_modules/pollen-css/pollen.css", "**/*.css"],
   "cssvar.ignore": [],
   "cssvar.disableSort": true
