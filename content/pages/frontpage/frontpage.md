@@ -8,10 +8,10 @@ profile:
   github: 'https://github.com/Mafrans'
   discord: Mafrans#4795
   linkedin: 'https://www.linkedin.com/in/malte-kl%C3%BCft-7bb20b130/'
-image: /celeste-512p.png
+image: /IMG_20230516_171520__01.jpg
 ---
 
-I'm a developer and keyboard designer from the Swedish north. My passion for building and technology has taken me to many places and found me many friends. 
+I'm a developer and keyboard designer from the Swedish north. My passion for building and technology has taken me to many places and found me many friends.
 
 You may know me from Stadia+ or one of my many other projects, which I have been making since childhood. It is not often ones path in life is so well paved as it has been for me, which is something I'm grateful for. At 11 I wrote my first program, a top down videogame made in GameMaker: Studio and following a Heartbeast guide I was frankly too dumb to understand - the game sucked, but got me hooked. Since then, my irratic brain and I have traveled through many different fields of programming and development, eventually landing me a job at Swedish design agency [Anyday](https://anyday.se "Anyday") at 18. I've worked there since, though in 2023 I'm going off to widen my views a bit by traveling down to Linköping for studies.
 
