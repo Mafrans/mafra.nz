@@ -7,3 +7,28 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+.richtext h1 {
+  font: var(--font-headline-1);
+  margin-bottom: var(--size-8);
+}
+
+.richtext h2 {
+  font: var(--font-headline-2);
+  margin-bottom: var(--size-8);
+}
+
+.richtext h3 {
+  font: var(--font-headline-3);
+  margin-bottom: var(--size-6);
+}
+
+.richtext p {
+  font: var(--font-body);
+  margin-bottom: var(--size-6);
+}
+
+.richtext p:first-of-type {
+  font: var(--font-body-lg);
+  margin-bottom: var(--size-8);
+}

@@ -27,6 +27,11 @@ export default defineConfig({
         path: "content/pages/frontpage",
         fields: [
           {
+            type: "image",
+            name: "image",
+            label: "Image",
+          },
+          {
             type: "string",
             name: "title",
             label: "Title",
@@ -34,31 +39,10 @@ export default defineConfig({
             required: true,
           },
           {
-            type: "object",
-            name: "profile",
-            label: "Profile",
-            fields: [
-              {
-                type: "image",
-                name: "image",
-                label: "Image",
-              },
-              {
-                type: "string",
-                name: "name",
-                label: "Name",
-              },
-              {
-                type: "string",
-                name: "alias",
-                label: "Alias",
-              },
-              {
-                type: "string",
-                name: "location",
-                label: "Location",
-              },
-            ],
+            type: "rich-text",
+            name: "content",
+            label: "Content",
+            isBody: true,
           },
         ],
         ui: {

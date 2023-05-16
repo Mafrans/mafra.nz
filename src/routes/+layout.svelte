@@ -13,15 +13,7 @@
   }
 
   .container {
-    max-width: var(--container);
-    display: grid;
-    gap: 1.5vw;
-    grid-template-columns: 1fr 2fr;
+    max-width: 860px;
     margin: 15vh auto;
-    padding: 0 1rem;
-  }
-
-  .container > :global(*) {
-    width: 100%;
   }
 </style>
