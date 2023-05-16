@@ -1,5 +1,5 @@
 ---
-title: You've arrived at Mafrans's homepage
+title: You've arrived at Maltes homepage
 profile:
   image: /celeste-512p.png
   name: Malte Klüft
