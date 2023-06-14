@@ -27,12 +27,3 @@ I'll make a fancy widget for my social media handles soon, but until then here's
 * [GitHub](https://github.com/Mafrans "GitHub")
 * My Discord is Mafrans#4795
 * Email me at malte.kluft@gmail.com
-
-An orange is sweet juicy fruit\
-Locked inside a bitter peel\
-\
-That's not how I feel about a challenge.\
-I only want the bitterness\
-Its coffee, its grapefruit, its licorice.
-
-﻿— Bennett Foddy
