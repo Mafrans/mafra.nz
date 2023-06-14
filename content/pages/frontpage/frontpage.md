@@ -11,6 +11,14 @@ profile:
 image: /IMG_20230516_171520__01.jpg
 ---
 
+> *An orange is sweet juicy fruit*\
+> *Locked inside a bitter peel*\
+> \
+> *That's not how I feel about a challenge.*\
+> *I only want the bitterness*\
+> *Its coffee, its grapefruit, its licorice.*\
+> ﻿— Bennett 
+
 I'm a developer and keyboard designer from the Swedish north. My passion for building and technology has taken me to many places and found me many friends.
 
 You may know me from Stadia+ or one of my many other projects which I have been making since childhood, it is not often ones path in life is so well paved as it has been for me, I'm grateful for that. At 11 I wrote my first program, it was a top down videogame made in GameMaker: Studio and following a Heartbeast guide I was frankly too dumb to understand. The game sucked but got me hooked to the process. Since then my erratic brain and I have traveled through many different fields of programming and development, eventually landing me a job at Swedish design agency [Anyday](https://anyday.se "Anyday") when I was 18. I've worked there since, though in 2023 I'm going off to widen my views a bit by traveling down to Linköping for studies.
