@@ -849,11 +849,6 @@
   resolved "https://registry.yarnpkg.com/@fontsource/nanum-pen-script/-/nanum-pen-script-5.0.3.tgz#8eb4dcc9094c26e2ea41107ed32dc1748e293365"
   integrity sha512-E0CO4erdhCLDRCaoEeXtkVPbXtD5cCGzwlWcQqeNEobXn+sM9896Cid99ZN+l/KIefqd9HcCwqjSw2/asVqemw==
 
-"@fontsource/patrick-hand@^5.0.3":
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/@fontsource/patrick-hand/-/patrick-hand-5.0.3.tgz#e8b1eb45c73fcef8d4ce14ad565d9cec82f1869b"
-  integrity sha512-drchi0aZR6muxIC7bkRfnt65krOlFds7SwhplFDHwNyv6d4jtbJRtHNXMDei7wCE1CiMRj+Kmi32/Iy5u3VeDw==
-
 "@formatjs/ecma402-abstract@1.14.3":
   version "1.14.3"
   resolved "https://registry.yarnpkg.com/@formatjs/ecma402-abstract/-/ecma402-abstract-1.14.3.tgz#6428f243538a11126180d121ce8d4b2f17465738"
