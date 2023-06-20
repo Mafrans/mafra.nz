@@ -47,5 +47,6 @@
   .socials {
     display: flex;
     gap: var(--size-6);
+    margin-top: var(--size-6);
   }
 </style>
