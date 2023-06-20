@@ -2,19 +2,12 @@
   import "../styles/global.css";
 </script>
 
-<div class="container">
-  <slot />
-</div>
+<slot />
 
 <style>
   :global(body) {
     font: var(--font-body);
     background: var(--color-grey-50);
-  }
-
-  .container {
-    max-width: 860px;
-    margin: 6vw auto;
-    padding: 2rm;
+    min-height: 100vh;
   }
 </style>

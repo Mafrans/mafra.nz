@@ -44,11 +44,63 @@ export default defineConfig({
             label: "Content",
             isBody: true,
           },
+          {
+            type: "object",
+            name: "socials",
+            label: "Socials",
+            list: true,
+            fields: [
+              {
+                type: "reference",
+                name: "ref",
+                required: true,
+                label: "Reference",
+                collections: ["social"],
+              },
+            ],
+          },
         ],
         ui: {
           allowedActions: {
             create: false,
             delete: false,
+          },
+        },
+      },
+      {
+        name: "social",
+        label: "Socials",
+        path: "content/socials",
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "image",
+            name: "logo",
+            label: "Logo",
+          },
+          {
+            type: "string",
+            name: "user",
+            label: "User",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "url",
+            label: "URL",
+          },
+        ],
+        ui: {
+          filename: {
+            // Custom slugify function because default does not do lowercase
+            slugify: (values) =>
+              values?.title?.toLowerCase().replace(/ /g, "-"),
           },
         },
       },

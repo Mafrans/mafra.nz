@@ -1,18 +1,25 @@
+@import "@fontsource/patrick-hand";
+@import "@fontsource/nanum-pen-script";
+@import "@fontsource/inter/variable";
+
 :root {
-  --font-sans: Inter, InterVariable, system-ui, -apple-system, Segoe UI, Roboto,
+  --font-sans: InterVariable, system-ui, -apple-system, Segoe UI, Roboto,
     Noto Sans, Ubuntu, Cantarell, Helvetica Neue;
 
   --font-mono: Fira Code, Fira CodeVariable, Consolas, Menlo, Monaco,
     "Liberation Mono", monospace;
 
-  --font-headline-1: var(--scale-fluid-6) / var(--line-none) var(--font-sans);
-  --font-headline-2: var(--scale-fluid-5) / var(--line-none) var(--font-sans);
-  --font-headline-3: var(--scale-fluid-4) / var(--line-xs) var(--font-sans);
+  --font-display: Nanum Pen Script, system-ui, -apple-system, Segoe UI, Roboto,
+    Noto Sans, Ubuntu, Cantarell, Helvetica Neue;
+
+  --font-headline-1: var(--scale-fluid-6) / var(--line-none) var(--font-display);
+  --font-headline-2: var(--scale-fluid-5) / var(--line-none) var(--font-display);
+  --font-headline-3: var(--scale-fluid-4) / var(--line-xs) var(--font-display);
   --font-body-lg: var(--scale-2) / var(--line-md) var(--font-sans);
   --font-body: 1rem / var(--line-md) var(--font-sans);
   --font-body-sm: var(--scale-00) / var(--line-lg) var(--font-sans);
   --font-terminal: var(--scale-2) / var(--line-none) var(--font-mono);
-  --font-button: var(--scale-00) / var(--line-none) var(--font-mono);
+  --font-button: var(--scale-3) / var(--line-none) var(--font-display);
 
   --transition: all 0.125s var(--ease-out-quad);
 }
