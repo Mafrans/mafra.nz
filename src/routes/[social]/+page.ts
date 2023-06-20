@@ -16,12 +16,6 @@ export const entries: EntryGenerator = async () => {
 };
 
 export const load: PageLoad = async ({ params }) => {
-  console.log(
-    (await client.queries.socialConnection()).data.socialConnection.edges?.map(
-      (e) => e?.node?._sys
-    )
-  );
-
   const { data: query } = await client.queries.social({
     relativePath: params.social + ".md",
   });
