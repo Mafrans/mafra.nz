@@ -9,4 +9,4 @@ socials:
 
 I'm a developer and keyboard designer from the Swedish north. My passion for building and technology has taken me to many places and found me many friends.
 
-At the moment, I work at the Swedish design firm Anyday. This fall I'm studying for a master's in information technology.
+I'm between occupations right now, but this fall I'm studying for a master's in information technology.
