@@ -31,9 +31,7 @@
 
     const observer = new ResizeObserver((entries) => {
       for (const entry of entries) {
-        const width = entry.borderBoxSize[0].blockSize;
-        const height = entry.borderBoxSize[1].blockSize;
-
+        const { width, height } = entry.contentRect;
         updateSize(width, height);
       }
     });
@@ -75,11 +73,11 @@
 <style>
   .button {
     position: relative;
-    display: inline-flex;
-    gap: var(--size-1);
+    display: flex;
+    gap: var(--space-sm);
     align-items: center;
     text-decoration: none;
-    padding: var(--size-3) var(--size-5);
+    padding: var(--space-md) var(--space-lg);
     color: currentColor;
     transition: var(--transition);
     font: var(--font-button);

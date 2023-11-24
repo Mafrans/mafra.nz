@@ -1,14 +1,7 @@
+import { loadFile } from "~/content";
 import type { PageLoad } from "./$types";
-import { client } from "@tina/client";
+import type { Frontpage } from "~/types/Frontpage";
 
-export const load: PageLoad = async () => {
-  const {
-    data: { frontpage },
-  } = await client.queries.frontpage({
-    relativePath: "frontpage.md",
-  });
-
-  return {
-    content: frontpage,
-  };
+export const load: PageLoad = () => {
+  return loadFile<Frontpage>("frontpage");
 };

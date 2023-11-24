@@ -1,9 +1,10 @@
 <script lang="ts">
-  import type { GamereviewQuery } from "@tina/types";
-  import TinaMarkdown from "./TinaMarkdown/TinaMarkdown.svelte";
+  import type { GameReview } from "~/types/GameReview";
   import Button from "./Button.svelte";
   import { ArrowRight } from "@steeze-ui/heroicons";
-  export let review: GamereviewQuery["gamereview"];
+
+  export let review: GameReview;
+  export let href: string;
 </script>
 
 <details role="listitem">
@@ -14,12 +15,7 @@
 
   <div class="content">
     <p>{review.excerpt ?? ""}</p>
-    <Button
-      href={`/reviews/${review._sys.relativePath}`}
-      rightIcon={ArrowRight}
-    >
-      Read more
-    </Button>
+    <Button {href} rightIcon={ArrowRight}>Read more</Button>
   </div>
 </details>
 
@@ -34,7 +30,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: var(--size-4);
+    padding: var(--space-lg);
   }
 
   h2 {
@@ -48,12 +44,12 @@
     aspect-ratio: 1/1;
     display: flex;
     align-items: center;
-    padding: var(--size-2);
+    padding: var(--space-sm);
     background: var(--color-grey-50);
   }
 
   .content {
-    padding: var(--size-4);
+    padding: var(--space-lg);
     max-width: 700px;
     font: var(--font-body-sm);
   }

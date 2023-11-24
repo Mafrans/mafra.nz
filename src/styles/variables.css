@@ -11,14 +11,27 @@
   --font-display: Nanum Pen Script, system-ui, -apple-system, Segoe UI, Roboto,
     Noto Sans, Ubuntu, Cantarell, Helvetica Neue;
 
-  --font-headline-1: var(--scale-fluid-6) / var(--line-none) var(--font-display);
-  --font-headline-2: var(--scale-fluid-5) / var(--line-none) var(--font-display);
-  --font-headline-3: var(--scale-fluid-4) / var(--line-xs) var(--font-display);
-  --font-body-lg: var(--scale-2) / var(--line-md) var(--font-sans);
-  --font-body: 1rem / var(--line-md) var(--font-sans);
-  --font-body-sm: var(--scale-00) / var(--line-lg) var(--font-sans);
-  --font-terminal: var(--scale-2) / var(--line-none) var(--font-mono);
-  --font-button: var(--scale-3) / var(--line-none) var(--font-display);
+  --font-headline-1: rfs(4rem / 1 var(--font-display));
+  --font-headline-2: rfs(2.5rem / 1 var(--font-display));
+  --font-headline-3: rfs(1.75rem / 1 var(--font-display));
+  --font-body-lg: 1.25rem / 1.4 var(--font-sans);
+  --font-body: 1rem / 1.5 var(--font-sans);
+  --font-body-sm: 0.75rem / 1.5 var(--font-sans);
+  --font-terminal: 1.125rem / 1 var(--font-mono);
+  --font-button: 1.5rem / 1 var(--font-display);
 
-  --transition: all 0.125s var(--ease-out-quad);
+  --space-xs: 0.1875rem;
+  --space-sm: calc(2 * var(--space-xs));
+  --space-md: calc(2 * var(--space-sm));
+  --space-lg: calc(2 * var(--space-md));
+  --space-xl: calc(2 * var(--space-lg));
+  --space-2xl: calc(2 * var(--space-xl));
+  --space-3xl: calc(2 * var(--space-2xl));
+
+  --shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+
+  --rounded: 7px;
+  --rounded-sm: 2px;
+
+  --ease-out: 0.125s cubic-bezier(0.33, 1, 0.68, 1);
 }

@@ -1,9 +1,11 @@
 <script lang="ts">
-  import TinaMarkdown from "~/components/TinaMarkdown/TinaMarkdown.svelte";
   import type { PageData } from "./$types";
 
   export let data: PageData;
-  const { title, body, rating } = data.content.gamereview;
+  const {
+    html,
+    attributes: { title, rating },
+  } = data.content;
 </script>
 
 <header>
@@ -14,7 +16,7 @@
   </p>
 </header>
 
-<TinaMarkdown content={body} />
+{@html html}
 
 <style>
   :global(body) {

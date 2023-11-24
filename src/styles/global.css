@@ -1,4 +1,3 @@
-@import "pollen-css";
 @import "./normalize.css";
 @import "./variables.css";
 
@@ -9,27 +8,27 @@ img {
 
 h1 {
   font: var(--font-headline-1);
-  margin-bottom: var(--size-4);
+  margin-bottom: var(--space-lg);
 }
 
 h2 {
   font: var(--font-headline-2);
-  margin-bottom: var(--size-4);
+  margin-bottom: var(--space-lg);
 }
 
 h3 {
   font: var(--font-headline-3);
-  margin-bottom: var(--size-2);
+  margin-bottom: var(--space-sm);
 }
 
 p {
   font: var(--font-body);
-  margin-bottom: var(--size-6);
+  margin-bottom: var(--space-md);
 }
 
 p:first-of-type {
   font: var(--font-body-lg);
-  margin-bottom: var(--size-8);
+  margin-bottom: var(--space-lg);
 }
 
 .container {

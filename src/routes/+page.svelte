@@ -1,28 +1,27 @@
 <script lang="ts">
-  import TinaMarkdown from "~/components/TinaMarkdown/TinaMarkdown.svelte";
   import type { PageData } from "./$types";
   import Button from "~/components/Button.svelte";
-  import { getBasename } from "~/util/util";
 
   export let data: PageData;
-  const { image, content, title, socials } = data.content;
+  const {
+    html,
+    attributes: { image, title, socials },
+  } = data.content;
 </script>
 
 <main class="container richtext">
   <img class="top-image" src={image} alt="" srcset="" />
   <h1>{title}</h1>
-  <TinaMarkdown {content} />
+  {@html html}
 
   <div class="socials">
-    {#each socials ?? [] as social}
+    {#each socials as social}
       {#if social != null}
-        <Button target="_blank" href={`/${getBasename(social.ref.id)}`}>
-          <img
-            src={social.ref.logo}
-            width="24"
-            alt={`${social.ref.title} logo`}
-          />
-          {social.ref.title}
+        {@const { title, logo } = social.content.attributes}
+
+        <Button target="_blank" href={`/${social.file}`}>
+          <img src={logo} width="24" alt={`${title} logo`} />
+          {title}
         </Button>
       {/if}
     {/each}
@@ -46,7 +45,9 @@
 
   .socials {
     display: flex;
-    gap: var(--size-6);
-    margin-top: var(--size-6);
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+    flex-wrap: wrap;
+    justify-content: center;
   }
 </style>
