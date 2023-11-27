@@ -1,7 +1,16 @@
-import { loadFile } from "~/content";
+import { entriesToRefs, loadEntries, loadFile } from "~/content";
 import type { PageLoad } from "./$types";
 import type { Frontpage } from "~/types/Frontpage";
+import type { PortfolioItem } from "~/types/PortfolioItem";
 
-export const load: PageLoad = () => {
-  return loadFile<Frontpage>("frontpage");
+export const load: PageLoad = async () => {
+  const frontpage = await loadFile<Frontpage>("frontpage");
+  const portfolio = await loadEntries("portfolio").then(
+    entriesToRefs<PortfolioItem>
+  );
+
+  return {
+    ...frontpage,
+    portfolio,
+  };
 };

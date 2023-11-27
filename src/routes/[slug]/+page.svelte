@@ -2,7 +2,7 @@
   import type { PageData } from "./$types";
 
   export let data: PageData;
-  const { title, user, url, logo } = data.content.attributes;
+  const { user, logo } = data.content.attributes;
 </script>
 
 <div class="user">

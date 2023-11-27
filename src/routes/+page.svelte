@@ -1,6 +1,8 @@
 <script lang="ts">
+  import Portfolio from "~/components/Portfolio.svelte";
   import type { PageData } from "./$types";
   import Button from "~/components/Button.svelte";
+  import Divider from "~/components/Divider.svelte";
 
   export let data: PageData;
   const {
@@ -26,6 +28,11 @@
       {/if}
     {/each}
   </div>
+
+  {#if data.portfolio.length > 0}
+    <Divider type="wave" title="Portfolio" />
+    <Portfolio items={data.portfolio} />
+  {/if}
 </main>
 
 <style>

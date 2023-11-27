@@ -13,14 +13,19 @@ type MarkdownContent<T> = {
   html: string;
 };
 
-export async function loadEntries(relativePath: string) {
+type Entry = {
+  path: string;
+  slug: string;
+};
+
+export async function loadEntries(relativePath: string): Promise<Entry[]> {
   const modules = import.meta.glob(`/content/**/*.md`);
 
   const files = [];
   for (const module of Object.keys(modules)) {
-    const [, path, file] = FileRegex.exec(module) ?? [];
-    if (path === relativePath) {
-      files.push(file);
+    const [, dir, slug] = FileRegex.exec(module) ?? [];
+    if (dir === relativePath) {
+      files.push({ path: `${dir}/${slug}`, slug: slug });
     }
   }
 
@@ -49,6 +54,12 @@ export async function loadFile<T extends Record<string, unknown>>(
       attributes: await hydrateAttributes(content.attributes),
     },
   };
+}
+
+export function entriesToRefs<T extends Record<string, unknown>>(
+  entries: Entry[]
+): Promise<Ref<T>[]> {
+  return Promise.all(entries.map(({ path }) => loadFile<T>(path)));
 }
 
 async function hydrateAttributes<

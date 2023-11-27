@@ -6,12 +6,11 @@ import type { Social } from "~/types/Social";
 export const prerender = true;
 
 export const entries: EntryGenerator = async () => {
-  const entries = await loadEntries("socials");
-  return entries.map((social) => ({ social }));
+  return loadEntries("socials");
 };
 
 export const load: PageLoad = async ({ params }) => {
-  const social = await loadFile<Social>(`socials/${params.social}`);
+  const social = await loadFile<Social>(`socials/${params.slug}`);
 
   const url = social.content.attributes.url;
   if (url != null) {
