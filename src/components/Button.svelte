@@ -48,11 +48,11 @@
     {target}
   >
     {#if leftIcon}
-      <Icon src={leftIcon} theme="mini" size="16" />
+      <Icon src={leftIcon} size="24" />
     {/if}
     <span><slot /></span>
     {#if rightIcon}
-      <Icon src={rightIcon} theme="mini" size="16" />
+      <Icon src={rightIcon} size="24" />
     {/if}
   </a>
 {:else}
@@ -61,11 +61,11 @@
     class={`button ${variant} ${size} ${isAlt ? "alt" : ""}`}
   >
     {#if leftIcon}
-      <Icon src={leftIcon} theme="mini" size="16" />
+      <Icon src={leftIcon} size="24" />
     {/if}
     <span><slot /></span>
     {#if rightIcon}
-      <Icon src={rightIcon} theme="mini" size="16" />
+      <Icon src={rightIcon} size="24" />
     {/if}
   </button>
 {/if}
@@ -73,7 +73,7 @@
 <style>
   .button {
     position: relative;
-    display: flex;
+    display: inline-flex;
     gap: var(--space-sm);
     align-items: center;
     text-decoration: none;

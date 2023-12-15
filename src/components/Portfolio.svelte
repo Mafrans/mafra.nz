@@ -45,6 +45,9 @@
 
   .item img {
     width: 200px;
+    border-radius: var(--rounded);
+    outline: 4px black dashed;
+    outline-offset: 4px;
   }
 
   .content {
