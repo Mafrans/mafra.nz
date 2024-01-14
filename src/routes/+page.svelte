@@ -22,6 +22,11 @@
     <Divider type="wave" title="Portfolio" />
     <PostList prefix="/portfolio" items={data.portfolio} />
   {/if}
+
+  {#if data.blog.length > 0}
+    <Divider type="wave" title="Blog posts" />
+    <PostList prefix="/blog" items={data.blog} />
+  {/if}
 </main>
 
 <style>
