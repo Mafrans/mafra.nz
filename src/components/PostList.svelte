@@ -24,7 +24,7 @@
   {/each}
 
   {#if items.length === 0}
-    <p>No posts found.</p>
+    <p>Nothing here yet.</p>
   {/if}
 </section>
 
