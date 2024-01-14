@@ -1,10 +1,12 @@
 ---
 title: You've arrived at Maltes homepage
 image: /guy.png
-socials:
-  - ref: socials/linkedin
-  - ref: socials/github
-  - ref: socials/discord
+links:
+  - ref: links/_blog
+  - ref: links/email
+  - ref: links/linkedin
+  - ref: links/github
+  - ref: links/discord
 ---
 
 I'm a developer and keyboard designer from the Swedish north. My passion for building and technology has taken me to many places and found me many friends.

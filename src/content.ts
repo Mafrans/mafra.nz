@@ -1,6 +1,6 @@
 import { error } from "@sveltejs/kit";
 
-const FileRegex = /\/content\/(?:([a-zA-Z0-9 /]+)\/)?(.+)\.md/;
+const FileRegex = /\/content\/(?:([a-zA-Z-_\/]+)\/)?(.+)\.md/;
 
 export type Ref<T = Record<string, string>> = {
   fullPath: string;

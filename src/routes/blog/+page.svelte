@@ -1,27 +1,27 @@
 <script lang="ts">
-  import PostList from "~/components/PostList.svelte";
-  import type { PageData } from "./$types";
-  import Links from "~/components/Links.svelte";
   import Divider from "~/components/Divider.svelte";
+  import Links from "~/components/Links.svelte";
+  import type { PageData } from "./$types";
+  import PostList from "~/components/PostList.svelte";
 
   export let data: PageData;
   const {
     html,
-    attributes: { image, title, links },
-  } = data.content;
+    attributes: { title, image, links },
+  } = data.frontpage.content;
+  const entries = data.entries;
 </script>
 
-<main class="container richtext">
+<main class="container">
   <img class="top-image" src={image} alt="" srcset="" />
   <h1>{title}</h1>
   {@html html}
 
   <Links {links} />
 
-  {#if data.portfolio.length > 0}
-    <Divider type="wave" title="Portfolio" />
-    <PostList prefix="/portfolio" items={data.portfolio} />
-  {/if}
+  <Divider type="wave" title="Posts" />
+
+  <PostList items={entries} />
 </main>
 
 <style>

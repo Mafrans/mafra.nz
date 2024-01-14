@@ -1,11 +1,14 @@
 <script lang="ts">
-  import type { PortfolioItem } from "~/types/PortfolioItem";
   import type { Ref } from "~/content";
   import Button from "./Button.svelte";
-  export let items: Ref<PortfolioItem>[] = [];
+  import type { Post } from "~/types/Post";
+  import { page } from "$app/stores";
+
+  export let items: Ref<Post>[] = [];
+  export let prefix: string = $page.url.pathname;
 </script>
 
-<section class="portfolio">
+<section class="postlist">
   {#each items as item}
     {@const { title, excerpt, image } = item.content.attributes}
 
@@ -15,14 +18,18 @@
         <h3>{title}</h3>
         <p>{excerpt}</p>
 
-        <Button href={`/portfolio/${item.file}`}>Read More</Button>
+        <Button href={`${prefix}/${item.file}`}>Read More</Button>
       </div>
     </article>
   {/each}
+
+  {#if items.length === 0}
+    <p>No posts found.</p>
+  {/if}
 </section>
 
 <style>
-  .portfolio {
+  .postlist {
     display: flex;
     flex-direction: column;
     gap: var(--space-xl);
@@ -45,6 +52,10 @@
 
   .item img {
     width: 200px;
+    aspect-ratio: 4 / 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: var(--rounded);
     outline: 4px black dashed;
     outline-offset: 4px;

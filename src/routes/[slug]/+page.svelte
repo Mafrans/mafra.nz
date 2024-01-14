@@ -2,12 +2,17 @@
   import type { PageData } from "./$types";
 
   export let data: PageData;
-  const { user, logo } = data.content.attributes;
+  const {
+    html,
+    attributes: { title, icon },
+  } = data.content;
 </script>
 
-<div class="user">
-  <img src={logo} alt="" />
-  <h1>{user}</h1>
+<div class="user container">
+  <title>{title}</title>
+  <img src={icon} alt="" />
+
+  {@html html}
 </div>
 
 <style>

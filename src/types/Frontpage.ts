@@ -1,8 +1,8 @@
 import type { Ref } from "~/content";
-import type { Social } from "./Social";
+import type { Link } from "./Link";
 
 export type Frontpage = {
   title: string;
   image: string;
-  socials: Ref<Social>[];
+  links: Ref<Link>[];
 };

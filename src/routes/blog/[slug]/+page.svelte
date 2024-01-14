@@ -9,7 +9,7 @@
 </script>
 
 <main class="container richtext">
-  <TopSection {title} {excerpt} {image} />
+  <TopSection {title} {excerpt} {image} backLink="/blog" />
 
   <Divider type="dots" />
 
