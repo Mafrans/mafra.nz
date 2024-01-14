@@ -21,7 +21,7 @@ we decided to produce prototype sketches early on, which were then animated
 quickly and added to the game so that we could get a feel for which
 animations would be necessary and which would not.
 
-The sketch above sadly did not ever make it into the game, but the running
+The sketch below sadly did not ever make it into the game, but the running
 animation was sketched in a similar manner and then inked and colored in
 a simple manner not too dissimilar from older Adobe Flash style games.
 

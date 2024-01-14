@@ -2,7 +2,7 @@
   import Divider from "~/components/Divider.svelte";
   import type { PageData } from "./$types";
   import Button from "~/components/Button.svelte";
-  import { ArrowLeft, Home } from "@steeze-ui/heroicons";
+  import { Home } from "@steeze-ui/heroicons";
 
   export let data: PageData;
   const { title, excerpt, image } = data.content.attributes;
@@ -22,7 +22,6 @@
     {@html data.content.html}
   </div>
 </main>
-```
 
 <style>
   main {
@@ -31,7 +30,7 @@
   }
 
   header {
-    width: 500px;
+    max-width: 500px;
     margin: 0 auto;
     text-align: left;
   }
