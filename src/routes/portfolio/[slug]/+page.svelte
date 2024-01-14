@@ -8,6 +8,8 @@
   const { title, excerpt, image } = data.content.attributes;
 </script>
 
+<title>{title} - Malte's Portfolio</title>
+
 <main class="container richtext">
   <TopSection {title} {excerpt} {image} />
 

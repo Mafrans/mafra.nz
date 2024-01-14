@@ -1,5 +1,5 @@
 ---
-title: Malte's blog
+title: Malte's bits and baubles
 image: /blog-guy.png
 links:
   - ref: links/home

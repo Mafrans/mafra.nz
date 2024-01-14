@@ -11,6 +11,8 @@
   } = data.content;
 </script>
 
+<title>Malte's Homepage</title>
+
 <main class="container richtext">
   <img class="top-image" src={image} alt="" srcset="" />
   <h1>{title}</h1>

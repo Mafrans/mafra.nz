@@ -12,6 +12,8 @@
   const entries = data.entries;
 </script>
 
+<title>Malte's Blog</title>
+
 <main class="container">
   <img class="top-image" src={image} alt="" srcset="" />
   <h1>{title}</h1>
