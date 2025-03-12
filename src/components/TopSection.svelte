@@ -2,6 +2,7 @@
   import { ArrowLeft } from "@steeze-ui/heroicons";
   import Button from "./Button.svelte";
   import { page } from "$app/stores";
+  import Divider from "./Divider.svelte";
 
   export let title: string;
   export let excerpt: string;
@@ -22,13 +23,15 @@
       <Button href={backLink} icon={ArrowLeft}>Go back</Button>
     </div>
   {/if}
+
+  <Divider type="dots" />
 </header>
 
 <style>
   header {
     max-width: 500px;
     margin: 0 auto;
-    text-align: left;
+    text-align: center;
   }
 
   .backlink {

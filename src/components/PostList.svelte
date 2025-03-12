@@ -43,6 +43,7 @@
     width: 100%;
     align-items: center;
     margin-bottom: 1rem;
+    text-align: right;
   }
 
   .item p {
@@ -59,6 +60,7 @@
     border-radius: var(--rounded);
     outline: 4px black dashed;
     outline-offset: 4px;
+    text-align: center;
   }
 
   .content {
@@ -71,6 +73,7 @@
     .item {
       grid-template-columns: 1fr;
       justify-content: center;
+      text-align: center;
     }
 
     .item img {

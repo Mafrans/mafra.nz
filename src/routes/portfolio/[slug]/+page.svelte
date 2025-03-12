@@ -10,19 +10,18 @@
 
 <title>{title} - Malte's Portfolio</title>
 
-<main class="container richtext">
+<main class="container">
   <TopSection {title} {excerpt} {image} />
 
-  <Divider type="dots" />
-
-  <Richtext>
-    {@html data.content.html}
-  </Richtext>
+  <div class="richtext">
+    <Richtext>
+      {@html data.content.html}
+    </Richtext>
+  </div>
 </main>
 
 <style>
   main {
-    text-align: center;
     height: 100%;
   }
 </style>

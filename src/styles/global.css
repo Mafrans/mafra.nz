@@ -1,6 +1,10 @@
 @import "./normalize.css";
 @import "./variables.css";
 
+* {
+  scroll-behavior: smooth;
+}
+
 img {
   max-width: 100%;
   height: auto;
