@@ -85,7 +85,6 @@
     font: var(--font-button);
     background-size: 100% 100%;
     text-transform: uppercase;
-    cursor: pointer;
   }
 
   .button:hover::before {
