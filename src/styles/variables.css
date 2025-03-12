@@ -42,4 +42,10 @@
   --rounded-sm: 2px;
 
   --ease-out: 0.125s cubic-bezier(0.33, 1, 0.68, 1);
+
+  --cursor-default: url('/Default.cur') 14 8, auto;
+  --cursor-pointer: url('/Pointer.cur') 16 8, auto;
+  --cursor-pointer-press: url('/Pointer Press.cur') 16 6, auto;
+  --cursor-text: url('/Text.cur') 24 24, auto;
+  --cursor-blocked: url('/Blocked.cur') 24 24, auto;
 }
