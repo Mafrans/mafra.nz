@@ -49,10 +49,10 @@ input, textarea, span, p, h1, h2, h3, h4 {
   cursor: url('/Text.cur') 24 24, auto;
 }
 
-a, button {
+a:hover, button:hover {
   cursor: url('/Pointer.cur') 16 8, auto;
 }
 
 a:active, button:active {
-  cursor: url('/Pointer Press.cur') 16 8, auto;
+  cursor: url('/Pointer Press.cur') 16 6, auto;
 }
