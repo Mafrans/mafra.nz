@@ -94,38 +94,38 @@
 
   .sm,
   .sm.alt:hover {
-    background-image: url("/buttons/button-sm-1.png");
+    background-image: url("/buttons/button-sm-1.webp");
   }
   .sm.alt,
   .sm:hover {
-    background-image: url("/buttons/button-sm-2.png");
+    background-image: url("/buttons/button-sm-2.webp");
   }
 
   .md,
   .md.alt:hover {
-    background-image: url("/buttons/button-md-1.png");
+    background-image: url("/buttons/button-md-1.webp");
   }
   .md.alt,
   .md:hover {
-    background-image: url("/buttons/button-md-2.png");
+    background-image: url("/buttons/button-md-2.webp");
   }
 
   .lg,
   .lg.alt:hover {
-    background-image: url("/buttons/button-lg-1.png");
+    background-image: url("/buttons/button-lg-1.webp");
   }
   .lg.alt,
   .lg:hover {
-    background-image: url("/buttons/button-lg-2.png");
+    background-image: url("/buttons/button-lg-2.webp");
   }
 
   .xl,
   .xl.alt:hover {
-    background-image: url("/buttons/button-xl-1.png");
+    background-image: url("/buttons/button-xl-1.webp");
   }
 
   .xl.alt,
   .xl:hover {
-    background-image: url("/buttons/button-xl-2.png");
+    background-image: url("/buttons/button-xl-2.webp");
   }
 </style>

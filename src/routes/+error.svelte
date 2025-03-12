@@ -3,7 +3,7 @@
 </script>
 
 <main class="container">
-  <img src="/four-oh-four.png" width="400" alt="" />
+  <img src="/four-oh-four.webp" width="400" alt="" />
   <h1>404</h1>
   <p>Sorry, we couldn't find this page</p>
   <Button href="/">Back home</Button>

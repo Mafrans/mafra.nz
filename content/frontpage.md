@@ -1,6 +1,6 @@
 ---
 title: You've arrived at Maltes homepage
-image: /guy.png
+image: /guy.webp
 links:
   - ref: links/_blog
   - ref: links/email
