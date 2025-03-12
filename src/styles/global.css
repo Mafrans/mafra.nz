@@ -49,10 +49,12 @@ input, textarea, span, p, h1, h2, h3, h4 {
   cursor: var(--cursor-text);
 }
 
-a:hover, button:hover {
+a, button,
+a *, button * {
   cursor: var(--cursor-pointer);
 }
 
-a:active, button:active {
+a:active, button:active
+a:active *, button:active * {
   cursor: var(--cursor-pointer-press);
 }
