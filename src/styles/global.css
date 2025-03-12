@@ -1,6 +1,10 @@
 @import "./normalize.css";
 @import "./variables.css";
 
+body {
+  cursor: url('/Default.cur') 14 8, auto;
+}
+
 * {
   scroll-behavior: smooth;
 }
@@ -39,4 +43,16 @@ p:first-of-type {
   max-width: 860px;
   margin: 0 auto;
   padding: 6vw 2rem;
+}
+
+input, textarea, span, p, h1, h2, h3, h4 {
+  cursor: url('/Text.cur') 24 24, auto;
+}
+
+a, button {
+  cursor: url('/Pointer.cur') 16 8, auto;
+}
+
+a:active, button:active {
+  cursor: url('/Pointer Press.cur') 16 8, auto;
 }
