@@ -7,7 +7,8 @@
 <style>
   :global(body) {
     font: var(--font-body);
-    background: var(--color-grey-50);
+    background-image: url("./background-texture.webp");
+    background-size: 700px;
     min-height: 100vh;
   }
 </style>
