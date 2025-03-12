@@ -23,7 +23,11 @@
   details {
     background: var(--color-grey-100);
     border: 1px solid var(--color-grey-300);
-    cursor: pointer;
+    cursor: var(--cursor-pointer);
+  }
+
+  details:active {
+    cursor: var(--cursor-pointer-press);
   }
 
   summary {
