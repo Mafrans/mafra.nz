@@ -56,6 +56,7 @@
     aspect-ratio: 4 / 3;
     display: flex;
     justify-content: center;
+    object-fit: cover;
     align-items: center;
     border-radius: var(--rounded);
     outline: 4px black dashed;

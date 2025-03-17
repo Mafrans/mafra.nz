@@ -7,6 +7,7 @@
   export let title: string;
   export let excerpt: string;
   export let image: string;
+  export let githubLink: string = "";
   export let backLink: string = "/";
 </script>
 
@@ -18,11 +19,17 @@
   <h1>{title}</h1>
   <p>{excerpt}</p>
 
-  {#if $page.url.pathname !== backLink}
-    <div class="backlink">
+  <div class="buttons">
+    {#if $page.url.pathname !== backLink}
       <Button href={backLink} icon={ArrowLeft}>Go back</Button>
-    </div>
-  {/if}
+    {/if}
+    {#if githubLink}
+      <Button target="__blank" href={githubLink}>
+        <img src={"/socials/github.png"} width={24} height={24} alt="" />
+        GitHub
+      </Button>
+    {/if}
+  </div>
 
   <Divider type="dots" />
 </header>
@@ -34,12 +41,15 @@
     text-align: center;
   }
 
-  .backlink {
+  .buttons {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
     margin-bottom: var(--space-lg);
-    text-align: center;
   }
 
-  img {
+  .top-image {
     width: 100%;
     margin: var(--space-lg) 0;
   }

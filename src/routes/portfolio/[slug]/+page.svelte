@@ -5,13 +5,13 @@
   import TopSection from "~/components/TopSection.svelte";
 
   export let data: PageData;
-  const { title, excerpt, image } = data.content.attributes;
+  const { title, excerpt, image, github } = data.content.attributes;
 </script>
 
 <title>{title} - Malte's Portfolio</title>
 
 <main class="container">
-  <TopSection {title} {excerpt} {image} />
+  <TopSection githubLink={github} {title} {excerpt} {image} />
 
   <div class="richtext">
     <Richtext>
