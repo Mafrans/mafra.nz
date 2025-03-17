@@ -2,6 +2,7 @@
 title: "LiU Fall Game Jam 2023"
 excerpt: "I participated in the 2023 LiU Fall Game Jam, where I produced all the artwork for the game Operation: Shell Shock alongside four other developers."
 image: /portfolio/operation-shell-shock.webp
+order: 2
 ---
 
 The LiU Fall Game Jam is hosted once every year by the game jam division of

@@ -3,11 +3,10 @@ title: "StadiaPlus"
 excerpt: "With 30 000 concurrent users, StadiaPlus was the leading Chrome-extension for Google's now retired Stadia-platform."
 image: /portfolio/stadiaplus.webp
 github: https://github.com/Mafrans/StadiaPlus
+order: 1
 ---
 
 StadiaPlus was my first major project as a full stack developer, it started small but quickly grew to involve an API backend, a desktop daemon and hundreds of hours of reverse engineering.
-
-*The pictures in this article are taken with permission from the brilliant [Marcus Billman](https://marcusbillman.se), who produced much of StadiaPlus's graphics.*
 
 The idea behind StadiaPlus came to me at the end of 2019, about a month after Google released Stadia, their new platform which was poised to compete with Xbox and PlayStation. The platform released in a rushed shape and was missing many useful and sometimes integral features, to call it a rough launch is taking it lightly. The idea, simply, was to introduce a few of these simpler features (which Google's engineers had set aside to focus on larger, more important implementation problems) as a Chrome-extension.
 
@@ -36,7 +35,7 @@ The result wasn't really all that much better, in all honesty, but it *was* my f
 
 It was about this time that I recruited long time friend and fellow UI designer [Marcus Billman](https://marcusbillman.se) initially only for some advice, but eventually to design the entire interface. His work on the project was incredible, and became an inspiration to go on a design journey of my own a few years later.
 
-![StadiaPlus underwent several design revisions over its lifetime.](/portfolio/stadiaplus_progress.webp)
+![StadiaPlus underwent several design revisions over its lifetime.](/portfolio/stadiaplus/progress.webp)
 
 We were quite close to a 3.0 revamp of the entire project by the time Stadia was retired as a platform. You can see more about what that would've looked like on [his website](https://www.marcusbillman.com/portfolio/stadiaplus). It used a pretty sophisticated solution involving React portals and observers to improve the responsiveness of the UI. Attaching your own UI to an existing product is harder than it seems—one of the features in 3.0 I was most fond of was the way I managed to, through some 12 hours of digging through the minified source code, add a hook into the single-page router. This would've allowed the extension to natively switch pages, without having to reload the website (which was quite slow to load). I'm still a little sad that the community never got to see this version of the extension.
 

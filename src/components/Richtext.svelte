@@ -51,4 +51,8 @@
       margin-bottom: var(--space-md);
     }
   }
+
+  .richtext :global(:is(video, img)) {
+    max-width: 100%;
+  }
 </style>

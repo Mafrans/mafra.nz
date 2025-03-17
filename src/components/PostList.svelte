@@ -6,10 +6,15 @@
 
   export let items: Ref<Post>[] = [];
   export let prefix: string = $page.url.pathname;
+
+  $: sortedItems = items.sort(
+    (a, b) =>
+      (b.content.attributes.order ?? 0) - (a.content.attributes.order ?? 0)
+  );
 </script>
 
 <section class="postlist">
-  {#each items as item}
+  {#each sortedItems as item}
     {@const { title, excerpt, image } = item.content.attributes}
 
     <article class="item">
@@ -23,7 +28,7 @@
     </article>
   {/each}
 
-  {#if items.length === 0}
+  {#if sortedItems.length === 0}
     <p>Nothing here yet.</p>
   {/if}
 </section>
