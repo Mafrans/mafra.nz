@@ -7,4 +7,3 @@ excerpt: >-
   original. Dishonored 2 is a much less finely crafted game, with less options,
   more obvious storytelling and a more systematic questing.
 ---
-

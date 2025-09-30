@@ -33,7 +33,7 @@ export async function loadEntries(relativePath: string): Promise<Entry[]> {
 }
 
 export async function loadFile<T extends Record<string, unknown>>(
-  relativePath: string
+  relativePath: string,
 ): Promise<Ref<T>> {
   const modules = import.meta.glob(`/content/**/*.md`, { eager: true });
   const [fullPath, , file] =
@@ -57,13 +57,13 @@ export async function loadFile<T extends Record<string, unknown>>(
 }
 
 export function entriesToRefs<T extends Record<string, unknown>>(
-  entries: Entry[]
+  entries: Entry[],
 ): Promise<Ref<T>[]> {
   return Promise.all(entries.map(({ path }) => loadFile<T>(path)));
 }
 
 async function hydrateAttributes<
-  T extends (object | { ref: string }) | unknown[]
+  T extends (object | { ref: string }) | unknown[],
 >(attributes: T): Promise<T> {
   if (Array.isArray(attributes)) {
     const newAttributes = [];

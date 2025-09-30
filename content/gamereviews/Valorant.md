@@ -7,4 +7,3 @@ excerpt: >-
   ancient formula. The ability system makes for more accessible and intuitive
   gameplay that even new players can pick up.
 ---
-

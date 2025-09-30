@@ -9,7 +9,7 @@
 
   $: sortedItems = items.sort(
     (a, b) =>
-      (b.content.attributes.order ?? 0) - (a.content.attributes.order ?? 0)
+      (b.content.attributes.order ?? 0) - (a.content.attributes.order ?? 0),
   );
 </script>
 

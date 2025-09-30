@@ -38,7 +38,7 @@
   $: simulating = false;
 
   function hashEdge(a: number, b: number) {
-    if(a > b) return b * number + a;
+    if (a > b) return b * number + a;
     return a * number + b;
   }
 
@@ -153,14 +153,16 @@
       for (const ni of neighbors) {
         const { x: nx, y: ny } = nodes[ni];
 
-        const ei = hashEdge(i, ni)
-        context.strokeStyle = "black"
-        if (visitedEdges.has(ei)) context.strokeStyle = "lightGreen"
+        const ei = hashEdge(i, ni);
+        context.strokeStyle = "black";
+        if (visitedEdges.has(ei)) context.strokeStyle = "lightGreen";
         if (
-          currentPath.includes(i)
-          && currentPath.includes(ni)
-          && (currentPath[currentPath.indexOf(i)+1] === ni || currentPath[currentPath.indexOf(ni)+1] === i)
-        ) context.strokeStyle = "red"
+          currentPath.includes(i) &&
+          currentPath.includes(ni) &&
+          (currentPath[currentPath.indexOf(i) + 1] === ni ||
+            currentPath[currentPath.indexOf(ni) + 1] === i)
+        )
+          context.strokeStyle = "red";
 
         context.lineWidth = 2;
         context.beginPath();
@@ -179,12 +181,12 @@
           offsetX + ((x + nx) / 2) * width - tw.width / 2 - margin,
           offsetY + ((y + ny) / 2) * height - nodeSize / 4 - margin,
           tw.width + 2 * margin,
-          nodeSize / 2 + 2 * margin
+          nodeSize / 2 + 2 * margin,
         );
         context.fillText(
           weight.toFixed(2),
           offsetX + ((x + nx) / 2) * width,
-          offsetY + ((y + ny) / 2) * height
+          offsetY + ((y + ny) / 2) * height,
         );
       }
     }
@@ -195,7 +197,8 @@
       context.fillStyle = "white";
       context.strokeStyle = "black";
 
-      if (queuedPaths.some(p => p.at(-1) === i)) context.fillStyle = "lightgrey";
+      if (queuedPaths.some((p) => p.at(-1) === i))
+        context.fillStyle = "lightgrey";
       if (visitedNodes.has(i)) context.fillStyle = "lightgreen";
       if (currentPath.includes(i)) context.fillStyle = "red";
 
@@ -205,7 +208,7 @@
         offsetY + y * height,
         nodeSize,
         0,
-        Math.PI * 2
+        Math.PI * 2,
       );
       context.fill();
       context.stroke();
@@ -285,7 +288,7 @@
       }
     }
 
-    queuedPaths = [[startNode]]
+    queuedPaths = [[startNode]];
     await dfs(queuedPaths.pop()!);
     currentPath = [];
   }
@@ -417,7 +420,7 @@
   }
 
   input[type="range"] {
-    background: transparent
+    background: transparent;
   }
 
   input[type="range"]::-webkit-slider-runnable-track,

@@ -9,7 +9,7 @@ export const prerender = true;
 export const load: PageLoad = async () => {
   const frontpage = await loadFile<Frontpage>("frontpage");
   const portfolio = await loadEntries("portfolio").then(
-    entriesToRefs<PortfolioItem>
+    entriesToRefs<PortfolioItem>,
   );
   const blog = await loadEntries("blog").then(entriesToRefs<BlogPost>);
 
