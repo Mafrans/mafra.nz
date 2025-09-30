@@ -10,7 +10,7 @@
   const distributions = {
     uniform: "Uniform",
     random: "Random",
-    normal: "Normal",
+    // normal: "Normal",
   } as const;
 
   const algorithms = {
@@ -31,11 +31,9 @@
   let edgeWeights: Map<number, number> = new Map();
   let startNode = 0;
   let queuedPaths: number[][] = [];
-  let queuedNodes: number[] = [];
   let visitedNodes: Set<number> = new Set();
   let visitedEdges: Set<number> = new Set();
-  let currentNodes: number[] = [];
-  let currentEdges: number[] = [];
+  let currentPath: number[] = [];
 
   $: simulating = false;
 
@@ -73,7 +71,7 @@
   function generate() {
     visitedEdges.clear();
     visitedNodes.clear();
-    currentEdges = currentNodes = [];
+    currentPath = [];
 
     const columns = Math.ceil(Math.sqrt(number));
     nodes = Array.from({ length: number }, () => ({
@@ -158,7 +156,11 @@
         const ei = hashEdge(i, ni)
         context.strokeStyle = "black"
         if (visitedEdges.has(ei)) context.strokeStyle = "lightGreen"
-        if (currentEdges.includes(ei)) context.strokeStyle = "red"
+        if (
+          currentPath.includes(i)
+          && currentPath.includes(ni)
+          && (currentPath[currentPath.indexOf(i)+1] === ni || currentPath[currentPath.indexOf(ni)+1] === i)
+        ) context.strokeStyle = "red"
 
         context.lineWidth = 2;
         context.beginPath();
@@ -193,9 +195,9 @@
       context.fillStyle = "white";
       context.strokeStyle = "black";
 
-      if (queuedNodes.includes(i)) context.fillStyle = "lightgrey";
+      if (queuedPaths.some(p => p.at(-1) === i)) context.fillStyle = "lightgrey";
       if (visitedNodes.has(i)) context.fillStyle = "lightgreen";
-      if (currentNodes.includes(i)) context.fillStyle = "red";
+      if (currentPath.includes(i)) context.fillStyle = "red";
 
       context.beginPath();
       context.arc(
@@ -244,19 +246,19 @@
   }
 
   async function simulateBreadthFirst() {
-    queuedNodes = [startNode];
+    queuedPaths = [[startNode]];
 
-    while (queuedNodes.length > 0) {
-      const i = queuedNodes.pop()!;
-      currentNodes = [i]
+    while (queuedPaths.length > 0) {
+      const path = queuedPaths.pop()!;
+      currentPath = path;
+      const i = path.at(-1)!;
       visitedNodes.add(i);
       for (const ni of nodes[i].neighbors) {
         const ei = hashEdge(i, ni);
-        currentEdges = [i]
         if (visitedNodes.has(ni)) continue;
         if (visitedEdges.has(ei)) continue;
         visitedEdges.add(ei);
-        queuedNodes.unshift(ni);
+        queuedPaths.unshift([...path, ni]);
 
         await renderSimulation();
       }
@@ -264,65 +266,69 @@
       await renderSimulation();
     }
 
-    currentEdges = currentNodes = [];
+    currentPath = [];
   }
 
   async function simulateDepthFirst() {
-    async function dfs(i: number) {
+    async function dfs(path: number[]) {
+      const i = path.at(-1)!;
       visitedNodes.add(i);
-      currentNodes = [i];
+      currentPath = path;
       for (const ni of nodes[i].neighbors) {
         const ei = hashEdge(i, ni);
-        currentEdges = [ei]
         if (!visitedNodes.has(ni)) {
           visitedEdges.add(ei);
-          queuedNodes.push(ni);
+          queuedPaths.push([...path, ni]);
           await renderSimulation();
-          await dfs(queuedNodes.pop()!);
+          await dfs(queuedPaths.pop()!);
         }
       }
     }
 
-    await dfs(startNode);
-    currentEdges = currentNodes = [];
+    queuedPaths = [[startNode]]
+    await dfs(queuedPaths.pop()!);
+    currentPath = [];
   }
 
   async function simulateDijkstra() {
-    queuedNodes = [];
+    queuedPaths = [[startNode]];
+    const queue = [startNode];
     const dist: number[] = [];
     const prev: (number | undefined)[] = [];
 
     for (let i = 0; i < nodes.length; i++) {
       dist[i] = Infinity;
       prev[i] = undefined;
-      queuedNodes.push(i);
     }
     dist[startNode] = 0;
 
-    while (queuedNodes.length > 0) {
-      queuedNodes.sort((a, b) => dist[a] - dist[b]);
+    while (queue.length > 0) {
+      queue.sort((a, b) => dist[a] - dist[b]);
 
-      let i = queuedNodes.shift();
+      let i = queue.shift();
       if (i == null) return;
 
-      currentNodes = [i]
+      currentPath = [];
+      for (let j = i; prev[j] !== undefined; j = prev[j]!) {
+        currentPath.unshift(j);
+      }
+      currentPath.unshift(startNode);
+
       visitedNodes.add(i);
       await renderSimulation();
 
       for (const ni of nodes[i].neighbors) {
         const w = dist[i] + getWeight(i, ni);
         const ei = hashEdge(i, ni);
-        currentEdges = [ei]
         visitedEdges.add(ei);
         if (w < dist[ni]) {
           dist[ni] = w;
           prev[ni] = i;
-          queuedNodes.push(ni);
+          queue.push(ni);
         }
         await renderSimulation();
       }
     }
-    currentEdges = currentNodes = [];
   }
 </script>
 
