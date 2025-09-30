@@ -30,13 +30,17 @@
   let nodes: Node[] = [];
   let edgeWeights: Map<number, number> = new Map();
   let startNode = 0;
+  let queuedPaths: number[][] = [];
   let queuedNodes: number[] = [];
   let visitedNodes: Set<number> = new Set();
   let visitedEdges: Set<number> = new Set();
+  let currentNodes: number[] = [];
+  let currentEdges: number[] = [];
 
   $: simulating = false;
 
   function hashEdge(a: number, b: number) {
+    if(a > b) return b * number + a;
     return a * number + b;
   }
 
@@ -69,6 +73,7 @@
   function generate() {
     visitedEdges.clear();
     visitedNodes.clear();
+    currentEdges = currentNodes = [];
 
     const columns = Math.ceil(Math.sqrt(number));
     nodes = Array.from({ length: number }, () => ({
@@ -150,10 +155,10 @@
       for (const ni of neighbors) {
         const { x: nx, y: ny } = nodes[ni];
 
-        context.strokeStyle =
-          visitedEdges.has(hashEdge(i, ni)) || visitedEdges.has(hashEdge(ni, i))
-            ? "lightGreen"
-            : "black";
+        const ei = hashEdge(i, ni)
+        context.strokeStyle = "black"
+        if (visitedEdges.has(ei)) context.strokeStyle = "lightGreen"
+        if (currentEdges.includes(ei)) context.strokeStyle = "red"
 
         context.lineWidth = 2;
         context.beginPath();
@@ -190,6 +195,7 @@
 
       if (queuedNodes.includes(i)) context.fillStyle = "lightgrey";
       if (visitedNodes.has(i)) context.fillStyle = "lightgreen";
+      if (currentNodes.includes(i)) context.fillStyle = "red";
 
       context.beginPath();
       context.arc(
@@ -226,10 +232,13 @@
     switch (algorithm) {
       case "breadthFirst":
         await simulateBreadthFirst();
+        break;
       case "depthFirst":
         await simulateDepthFirst();
+        break;
       case "dijkstra":
         await simulateDijkstra();
+        break;
     }
     simulating = false;
   }
@@ -239,10 +248,14 @@
 
     while (queuedNodes.length > 0) {
       const i = queuedNodes.pop()!;
+      currentNodes = [i]
       visitedNodes.add(i);
       for (const ni of nodes[i].neighbors) {
+        const ei = hashEdge(i, ni);
+        currentEdges = [i]
         if (visitedNodes.has(ni)) continue;
-        visitedEdges.add(hashEdge(i, ni));
+        if (visitedEdges.has(ei)) continue;
+        visitedEdges.add(ei);
         queuedNodes.unshift(ni);
 
         await renderSimulation();
@@ -250,14 +263,19 @@
 
       await renderSimulation();
     }
+
+    currentEdges = currentNodes = [];
   }
 
   async function simulateDepthFirst() {
     async function dfs(i: number) {
       visitedNodes.add(i);
+      currentNodes = [i];
       for (const ni of nodes[i].neighbors) {
+        const ei = hashEdge(i, ni);
+        currentEdges = [ei]
         if (!visitedNodes.has(ni)) {
-          visitedEdges.add(hashEdge(i, ni));
+          visitedEdges.add(ei);
           queuedNodes.push(ni);
           await renderSimulation();
           await dfs(queuedNodes.pop()!);
@@ -266,6 +284,7 @@
     }
 
     await dfs(startNode);
+    currentEdges = currentNodes = [];
   }
 
   async function simulateDijkstra() {
@@ -286,12 +305,15 @@
       let i = queuedNodes.shift();
       if (i == null) return;
 
+      currentNodes = [i]
       visitedNodes.add(i);
       await renderSimulation();
 
       for (const ni of nodes[i].neighbors) {
         const w = dist[i] + getWeight(i, ni);
-        visitedEdges.add(hashEdge(i, ni));
+        const ei = hashEdge(i, ni);
+        currentEdges = [ei]
+        visitedEdges.add(ei);
         if (w < dist[ni]) {
           dist[ni] = w;
           prev[ni] = i;
@@ -300,6 +322,7 @@
         await renderSimulation();
       }
     }
+    currentEdges = currentNodes = [];
   }
 </script>
 
@@ -385,6 +408,10 @@
     grid-template-columns: max-content 1fr;
     align-items: center;
     gap: 0.5rem;
+  }
+
+  input[type="range"] {
+    background: transparent
   }
 
   input[type="range"]::-webkit-slider-runnable-track,
